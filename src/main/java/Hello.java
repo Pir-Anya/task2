@@ -25,18 +25,22 @@ public class Hello {
         telList.add("+8 800 2000 000");
         telbook.put("Сидоров С.С.", telList);
 
+        telList = new ArrayList();
+        telbook.put("Васильев В.В.", telList);
+
         System.out.println("Введите ФИО:");
         Scanner input = new Scanner(System.in);
         String fio = input.nextLine();
 
+        if (!telbook.containsKey(fio)) {
+            System.out.println("Такого ФИО в базе нет");
+            return;
+        }
         ArrayList tel = telbook.get(fio);
         for(int i = 0; i < tel.size(); i++){
             System.out.println(Integer.toString(i+1) + ". " + tel.get(i));
         }
         if (tel.size() ==0) System.out.println("Телефон отсутсвует");
-
-
-
 
     }
 
